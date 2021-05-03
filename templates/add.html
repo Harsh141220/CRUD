@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-3 mb-5">
+    <div class='row mt-5 mb-5 shadow'>
+        <div class='col-lg-6 shadow p-4'>
+            <h3>Add Blog</h3>
+            <form action="super" method="POST" enctype="multipart/form-data"  autocapitalize="off">                {% csrf_token %}
+                <div class="form-group">
+                  <label >Name</label>
+                  <input type="text" class="form-control" id="food" name="food">
+                </div>
+                <div class="form-group">
+                  <label>Description</label>
+                  
+                  <textarea name="discp" rows="5" cols="45" class="form-control"></textarea><br>
+                </div>
+                <div class="form-group">
+                    <label>Select Cuisine</label>
+                        <input list="cuisine" name="cuisine">
+                        <datalist id="cuisine">
+                        <option value="Chinese">
+                        <option value="Indian">
+                        <option value="Mexican">
+                        <option value="Italian">
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="rd1" name="rd" value="Veg">
+                    <label for="rd1">Veg</label><br>
+                    <input type="radio" id="rd2" name="rd" value="Non Veg">
+                    <label for="rd2">Non Veg</label><br><br> 
+                </div>
+                  <div class="form-group">
+                    <label>Insert an Image</label>
+
+                    <input type="file" id="img" name="img" accept="image/*"></div>
+
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="date" name="date" class="form-control">
+                  </div>
+                
+                  
+                <input type="submit" name="action" value="Insert">&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="action" value="Delete">&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="action" value="Update"><br>
+              </form>
+        </div>
+        <div class='col-lg-6'>
+            <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/52/25/d5/food-trip-with-friends.jpg"class="img-fluid img-regressive" alt="" style="align-items: center;">
+        </div>
+    </div>
+</div>
+{% endblock %}
